@@ -22,7 +22,8 @@
 @implementation SpotifyAPIController
 
 
-- (void)fetchAlbumsWithCompletionHandler: (void (^)(NSArray *albums, NSError *error))completionHandler {
+- (void)fetchAlbumsWithCompletionHandler: (void (^)(NSArray *albums, NSError *error))completionHandler
+{
 
     self.albums = [NSMutableArray new];
     
@@ -85,7 +86,8 @@
 }
 
 
--(void)fetchReleaseYearfromUrl:(NSURL *)url completionHandler:(void (^)(NSString *releaseYear))completionHandler{
+-(void)fetchReleaseYearfromUrl:(NSURL *)url completionHandler:(void (^)(NSString *releaseYear))completionHandler
+{
     
     NSURLSessionDataTask *fetchAlbumJson = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
@@ -106,6 +108,27 @@
     }];
     
     [fetchAlbumJson resume];
+}
+
+- (void)downloadImage:(Album *)album forIndexPath:(NSIndexPath *)indexPath completionHandler:(void (^)(UIImage *image, NSError *error))completionHandler
+{
+    
+    NSURLSessionDataTask *loadimages = [[NSURLSession sharedSession] dataTaskWithURL:album.imageUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (!error) {
+            
+            UIImage *albumImage = [UIImage imageWithData:data];
+            album.image = albumImage;
+
+            completionHandler(albumImage, nil);
+            
+        } else {
+            
+            completionHandler(nil, error);
+        }
+    }];
+    
+    [loadimages resume];
 }
 
 @end

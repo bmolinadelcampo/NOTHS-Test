@@ -32,7 +32,6 @@
 
     self.nameLabel.text = @"";
     self.releaseYearLabel.text = @"-";
-    self.imageView.image = [UIImage imageNamed:@"default-placeholder"];
 }
 
 @end

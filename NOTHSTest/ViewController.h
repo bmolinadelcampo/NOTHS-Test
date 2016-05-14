@@ -10,7 +10,7 @@
 #import "SpotifyAPIController.h"
 #import "AlbumTableViewCell.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITabBarDelegate>
+@interface ViewController : UIViewController 
 
 
 @end

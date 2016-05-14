@@ -8,11 +8,12 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDataSource, UITabBarDelegate, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray *albums;
+@property (strong, nonatomic) SpotifyAPIController *APIController;
 
 @end
 
@@ -21,9 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    SpotifyAPIController *APIController = [SpotifyAPIController new];
+    self.APIController = [SpotifyAPIController new];
 
-    [APIController fetchAlbumsWithCompletionHandler:^(NSArray *albums, NSError *error) {
+    [self.APIController fetchAlbumsWithCompletionHandler:^(NSArray *albums, NSError *error) {
         
         if (!error) {
             
@@ -57,7 +58,65 @@
     cell.nameLabel.text = currentAlbum.name;
     cell.releaseYearLabel.text = currentAlbum.releaseYear;
     
+    if (!currentAlbum.image)
+    {
+        if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+        {
+            [self.APIController downloadImage:currentAlbum forIndexPath:indexPath completionHandler:^(UIImage *image, NSError *error) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    cell.imageView.image = image;
+                });
+            }];
+        }
+        
+        cell.imageView.image = [UIImage imageNamed:@"default-placeholder"];
+        
+    } else {
+        
+        cell.imageView.image = currentAlbum.image;
+    }
+    
     return cell;
+}
+
+- (void)loadImagesForOnscreenRows
+{
+
+        NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+    
+        for (NSIndexPath *indexPath in visiblePaths)
+        {
+            Album *album = (self.albums)[indexPath.row];
+            
+            if (!album.image)
+            {
+                [self.APIController downloadImage:album forIndexPath:indexPath completionHandler:^(UIImage *image, NSError *error) {
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        [self.tableView cellForRowAtIndexPath:indexPath].imageView.image = image;
+                    });
+                }];
+
+            }
+        }
+}
+
+#pragma mark - UIScrollViewDelegate methods
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+    {
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
 }
 
 @end

@@ -11,8 +11,8 @@
 
 @interface SpotifyAPIController : NSObject
 
-- (void)fetchAlbumsWithCompletionHandler: (void (^)(NSArray *albums, NSError *error))completionHandler;
+- (void)fetchAlbumsWithCompletionHandler:(void (^)(NSArray *albums, NSError *error))completionHandler;
 
-
+- (void)downloadImage:(Album *)album forIndexPath:(NSIndexPath *)indexPath completionHandler:(void (^)(UIImage *image, NSError *error))completionHandler;
 
 @end

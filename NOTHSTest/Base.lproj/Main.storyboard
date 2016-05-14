@@ -31,8 +31,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="118.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fon-YF-Y2X">
-                                                    <rect key="frame" x="92" y="38.5" width="492" height="21.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fon-YF-Y2X">
+                                                    <rect key="frame" x="92" y="38" width="492" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -50,9 +50,9 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Release Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tth-g0-Zaw">
-                                                    <rect key="frame" x="92" y="69" width="98" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tth-g0-Zaw">
+                                                    <rect key="frame" x="92" y="68" width="93" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -64,14 +64,8 @@
                                                 <constraint firstItem="Tth-g0-Zaw" firstAttribute="top" secondItem="Fon-YF-Y2X" secondAttribute="bottom" constant="8" id="MWS-Wa-naK"/>
                                                 <constraint firstItem="Gzz-Kv-xVq" firstAttribute="leading" secondItem="zgV-Xd-joi" secondAttribute="leadingMargin" id="O7C-IQ-jop"/>
                                                 <constraint firstItem="Fon-YF-Y2X" firstAttribute="centerY" secondItem="Gzz-Kv-xVq" secondAttribute="centerY" constant="-10" id="ZhL-Vk-OCy"/>
-                                                <constraint firstItem="Fon-YF-Y2X" firstAttribute="top" secondItem="zgV-Xd-joi" secondAttribute="topMargin" constant="8" id="dGD-mb-0cm"/>
                                                 <constraint firstItem="Fon-YF-Y2X" firstAttribute="leading" secondItem="Gzz-Kv-xVq" secondAttribute="trailing" constant="20" id="fbg-eQ-WUh"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="dGD-mb-0cm"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageView" destination="Gzz-Kv-xVq" id="Zal-v1-AG0"/>

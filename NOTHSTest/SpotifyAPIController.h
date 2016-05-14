@@ -11,6 +11,8 @@
 
 @interface SpotifyAPIController : NSObject
 
-- (NSArray *)fetchAlbums;
+- (void)fetchAlbumsWithCompletionHandler: (void (^)(NSArray *albums, NSError *error))completionHandler;
+
+
 
 @end

@@ -15,6 +15,7 @@
 		97FBF97B1CE7201B00B72783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97FBF9791CE7201B00B72783 /* LaunchScreen.storyboard */; };
 		97FBF9851CE727B900B72783 /* SpotifyAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF9841CE727B900B72783 /* SpotifyAPIController.m */; };
 		97FBF9891CE727ED00B72783 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF9881CE727ED00B72783 /* Album.m */; };
+		97FBF98D1CE7553100B72783 /* AlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF98C1CE7553100B72783 /* AlbumTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		97FBF9841CE727B900B72783 /* SpotifyAPIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyAPIController.m; sourceTree = "<group>"; };
 		97FBF9871CE727ED00B72783 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		97FBF9881CE727ED00B72783 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		97FBF98B1CE7553100B72783 /* AlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTableViewCell.h; sourceTree = "<group>"; };
+		97FBF98C1CE7553100B72783 /* AlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,7 @@
 				97FBF9821CE7275D00B72783 /* ViewControllers */,
 				97FBF9861CE727CC00B72783 /* Controllers */,
 				97FBF98A1CE727F500B72783 /* Models */,
+				97FBF98E1CE7553E00B72783 /* Custom Cells */,
 				97FBF9741CE7201B00B72783 /* Main.storyboard */,
 				97FBF9771CE7201B00B72783 /* Assets.xcassets */,
 				97FBF9791CE7201B00B72783 /* LaunchScreen.storyboard */,
@@ -113,6 +117,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		97FBF98E1CE7553E00B72783 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				97FBF98B1CE7553100B72783 /* AlbumTableViewCell.h */,
+				97FBF98C1CE7553100B72783 /* AlbumTableViewCell.m */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +157,7 @@
 				TargetAttributes = {
 					97FBF9671CE7201B00B72783 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = HC8LG89AQC;
 					};
 				};
 			};
@@ -184,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97FBF9731CE7201B00B72783 /* ViewController.m in Sources */,
+				97FBF98D1CE7553100B72783 /* AlbumTableViewCell.m in Sources */,
 				97FBF9851CE727B900B72783 /* SpotifyAPIController.m in Sources */,
 				97FBF9701CE7201B00B72783 /* AppDelegate.m in Sources */,
 				97FBF9891CE727ED00B72783 /* Album.m in Sources */,
@@ -297,6 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NOTHSTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bmc.NOTHSTest;
@@ -308,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NOTHSTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bmc.NOTHSTest;

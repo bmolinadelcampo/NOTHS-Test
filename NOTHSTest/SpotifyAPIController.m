@@ -22,8 +22,8 @@
 @implementation SpotifyAPIController
 
 
-- (NSArray *)fetchAlbums {
-    
+- (void)fetchAlbumsWithCompletionHandler: (void (^)(NSArray *albums, NSError *error))completionHandler {
+
     self.albums = [NSMutableArray new];
     
     self.session = [NSURLSession sharedSession];
@@ -38,6 +38,7 @@
             NSArray *jsonItemsArray = jsonFeed[@"items"];
             
             for (NSDictionary *item in jsonItemsArray) {
+                
                 NSString *name = item[@"name"];
                 
                 NSArray *imagesArray = item[@"images"];
@@ -54,25 +55,33 @@
                 [self.albums addObject:newAlbum];
             }
             
+            __block int count = 0;
+            
             for (Album *album in self.albums) {
                 
                 [self fetchReleaseYearfromUrl:album.infoUrl completionHandler:^(NSString *releaseYear) {
                     
                     album.releaseYear = releaseYear;
                     NSLog(@"Name: %@, Year: %@", album.name, album.releaseYear);
+                    count++;
+                    if (count == [self.albums count]) {
+                        completionHandler(self.albums, nil);
+                    }
                 }
                  ];
             }
 
         } else {
+            
             NSLog(@"%@", error);
+            completionHandler(nil, error);
         }
         
     }];
     
     [fetchJson resume];
     
-    return self.albums;
+    return;
 }
 
 

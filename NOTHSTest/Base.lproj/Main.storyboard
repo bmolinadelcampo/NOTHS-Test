@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--The Albums-->
@@ -17,20 +19,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="STm-ZB-Cod">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="STm-ZB-Cod">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.17254901959999999" green="0.55294117649999996" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="albumCell" rowHeight="119" id="zZ1-6S-DqX" customClass="AlbumTableViewCell">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="119"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zZ1-6S-DqX" id="zgV-Xd-joi">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="118.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fon-YF-Y2X">
+                                                    <rect key="frame" x="92" y="38.5" width="492" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gzz-Kv-xVq">
+                                                    <rect key="frame" x="8" y="27" width="64" height="64"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Gzz-Kv-xVq" secondAttribute="height" multiplier="1:1" id="88Q-r7-kBn"/>
+                                                        <constraint firstAttribute="width" secondItem="Gzz-Kv-xVq" secondAttribute="height" multiplier="1:1" id="SgF-gV-1uK"/>
+                                                        <constraint firstAttribute="width" constant="64" id="m19-v8-bHm"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="88Q-r7-kBn"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Release Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tth-g0-Zaw">
+                                                    <rect key="frame" x="92" y="69" width="98" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tth-g0-Zaw" firstAttribute="leading" secondItem="Fon-YF-Y2X" secondAttribute="leading" id="CPJ-Sd-LLC"/>
+                                                <constraint firstItem="Gzz-Kv-xVq" firstAttribute="centerY" secondItem="zgV-Xd-joi" secondAttribute="centerY" id="FAZ-kM-ms0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Fon-YF-Y2X" secondAttribute="trailing" constant="8" id="Gya-ik-Zmf"/>
+                                                <constraint firstItem="Tth-g0-Zaw" firstAttribute="top" secondItem="Fon-YF-Y2X" secondAttribute="bottom" constant="8" id="MWS-Wa-naK"/>
+                                                <constraint firstItem="Gzz-Kv-xVq" firstAttribute="leading" secondItem="zgV-Xd-joi" secondAttribute="leadingMargin" id="O7C-IQ-jop"/>
+                                                <constraint firstItem="Fon-YF-Y2X" firstAttribute="centerY" secondItem="Gzz-Kv-xVq" secondAttribute="centerY" constant="-10" id="ZhL-Vk-OCy"/>
+                                                <constraint firstItem="Fon-YF-Y2X" firstAttribute="top" secondItem="zgV-Xd-joi" secondAttribute="topMargin" constant="8" id="dGD-mb-0cm"/>
+                                                <constraint firstItem="Fon-YF-Y2X" firstAttribute="leading" secondItem="Gzz-Kv-xVq" secondAttribute="trailing" constant="20" id="fbg-eQ-WUh"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="dGD-mb-0cm"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageView" destination="Gzz-Kv-xVq" id="Zal-v1-AG0"/>
+                                            <outlet property="nameLabel" destination="Fon-YF-Y2X" id="9HE-so-lO1"/>
+                                            <outlet property="releaseYearLabel" destination="Tth-g0-Zaw" id="3cO-Yq-S8W"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="QUp-u6-ob7"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="E7n-NJ-x3T"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="STm-ZB-Cod" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="DKT-ig-K7E"/>
+                            <constraint firstItem="STm-ZB-Cod" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="DKT-ig-K7E"/>
                             <constraint firstAttribute="trailing" secondItem="STm-ZB-Cod" secondAttribute="trailing" id="f0U-dn-WmI"/>
                             <constraint firstItem="STm-ZB-Cod" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kPB-nd-Oa4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="STm-ZB-Cod" secondAttribute="bottom" id="xwy-Ew-GXA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="The Albums" id="c4J-UT-nlI"/>
+                    <connections>
+                        <outlet property="tableView" destination="STm-ZB-Cod" id="2WJ-ua-DAE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

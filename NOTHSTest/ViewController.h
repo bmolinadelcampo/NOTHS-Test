@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SpotifyAPIController.h"
+#import "AlbumTableViewCell.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDataSource, UITabBarDelegate>
 
 
 @end

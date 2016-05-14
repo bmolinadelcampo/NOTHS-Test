@@ -10,4 +10,17 @@
 
 @implementation Album
 
+-(instancetype)initWithContentsOfDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    
+    if (self) {
+        self.name = dictionary[@"name"];
+        self.imageUrl = dictionary[@"imageUrl"];
+        self.infoUrl = dictionary[@"infoUrl"];
+    }
+    
+    return self;
+}
+
 @end

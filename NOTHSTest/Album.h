@@ -17,4 +17,8 @@
 @property (strong, nonatomic) NSURL *infoUrl;
 @property (strong, nonatomic) NSString *releaseYear;
 
+-(instancetype)initWithContentsOfDictionary:(NSDictionary *)dictionary;
+
 @end
+
+

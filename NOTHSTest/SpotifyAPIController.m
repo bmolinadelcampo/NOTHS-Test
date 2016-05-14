@@ -48,10 +48,9 @@
                 
                 NSURL *albumUrl = [NSURL URLWithString:item[@"href"]];
                 
-                Album *newAlbum = [Album new];
-                newAlbum.name = name;
-                newAlbum.imageUrl = imageUrl;
-                newAlbum.infoUrl = albumUrl;
+                NSDictionary *albumInfo = [NSDictionary dictionaryWithObjectsAndKeys:name, @"name", imageUrl, @"imageUrl", albumUrl, @"infoUrl", nil];
+                
+                Album *newAlbum = [[Album alloc] initWithContentsOfDictionary:albumInfo];
                 
                 [self.albums addObject:newAlbum];
             }

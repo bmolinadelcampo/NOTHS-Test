@@ -10,13 +10,17 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) NSArray *albums;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    SpotifyAPIController *APIController = [SpotifyAPIController new];
+    self.albums = [APIController fetchAlbums];
 }
 
 - (void)didReceiveMemoryWarning {

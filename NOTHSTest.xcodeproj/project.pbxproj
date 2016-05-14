@@ -13,6 +13,8 @@
 		97FBF9761CE7201B00B72783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97FBF9741CE7201B00B72783 /* Main.storyboard */; };
 		97FBF9781CE7201B00B72783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FBF9771CE7201B00B72783 /* Assets.xcassets */; };
 		97FBF97B1CE7201B00B72783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97FBF9791CE7201B00B72783 /* LaunchScreen.storyboard */; };
+		97FBF9851CE727B900B72783 /* SpotifyAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF9841CE727B900B72783 /* SpotifyAPIController.m */; };
+		97FBF9891CE727ED00B72783 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF9881CE727ED00B72783 /* Album.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		97FBF9771CE7201B00B72783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97FBF97A1CE7201B00B72783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97FBF97C1CE7201B00B72783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97FBF9831CE727B900B72783 /* SpotifyAPIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyAPIController.h; sourceTree = "<group>"; };
+		97FBF9841CE727B900B72783 /* SpotifyAPIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyAPIController.m; sourceTree = "<group>"; };
+		97FBF9871CE727ED00B72783 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		97FBF9881CE727ED00B72783 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +66,9 @@
 			children = (
 				97FBF96E1CE7201B00B72783 /* AppDelegate.h */,
 				97FBF96F1CE7201B00B72783 /* AppDelegate.m */,
-				97FBF9711CE7201B00B72783 /* ViewController.h */,
-				97FBF9721CE7201B00B72783 /* ViewController.m */,
+				97FBF9821CE7275D00B72783 /* ViewControllers */,
+				97FBF9861CE727CC00B72783 /* Controllers */,
+				97FBF98A1CE727F500B72783 /* Models */,
 				97FBF9741CE7201B00B72783 /* Main.storyboard */,
 				97FBF9771CE7201B00B72783 /* Assets.xcassets */,
 				97FBF9791CE7201B00B72783 /* LaunchScreen.storyboard */,
@@ -77,6 +84,33 @@
 				97FBF96C1CE7201B00B72783 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		97FBF9821CE7275D00B72783 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				97FBF9711CE7201B00B72783 /* ViewController.h */,
+				97FBF9721CE7201B00B72783 /* ViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		97FBF9861CE727CC00B72783 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				97FBF9831CE727B900B72783 /* SpotifyAPIController.h */,
+				97FBF9841CE727B900B72783 /* SpotifyAPIController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		97FBF98A1CE727F500B72783 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				97FBF9871CE727ED00B72783 /* Album.h */,
+				97FBF9881CE727ED00B72783 /* Album.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +184,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				97FBF9731CE7201B00B72783 /* ViewController.m in Sources */,
+				97FBF9851CE727B900B72783 /* SpotifyAPIController.m in Sources */,
 				97FBF9701CE7201B00B72783 /* AppDelegate.m in Sources */,
+				97FBF9891CE727ED00B72783 /* Album.m in Sources */,
 				97FBF96D1CE7201B00B72783 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

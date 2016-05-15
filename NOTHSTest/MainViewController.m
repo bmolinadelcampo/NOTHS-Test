@@ -16,6 +16,8 @@
 @property (strong, nonatomic) SpotifyAPIController *APIController;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
+- (IBAction)showInfo:(UIBarButtonItem *)sender;
+
 @end
 
 @implementation MainViewController
@@ -204,6 +206,20 @@
     
     UIColor *navigationBarBackgroundColor = [UIColor colorWithRed:0.80 green:0.19 blue:0.18 alpha:1.00];
     [self.navigationController.navigationBar setBarTintColor:navigationBarBackgroundColor];
+}
+
+- (IBAction)showInfo:(UIBarButtonItem *)sender {
+    
+    NSString *message = @"Belén Molina del Campo \nMay 2016 \n\nThanks!";
+    
+    UIAlertController *infoAlertController = [UIAlertController alertControllerWithTitle:@"NOTHS Coding Test" message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:nil];
+    
+    [infoAlertController addAction:dismissAction];
+    
+    [self presentViewController:infoAlertController animated:YES completion:nil];
+    
 }
 
 @end

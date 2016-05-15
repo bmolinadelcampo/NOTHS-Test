@@ -1,4 +1,4 @@
-![NOTHS-Test][Resources/header-image.png]
+![NOTHS-Test](Resources/header-image.png)
 
 ####Test for notonthehighstreet.com iOS Developer
 
@@ -13,6 +13,6 @@
 
 ####Some screenshot 
 
-![launch-screen][Resources/launch-screen.png]
-![album-list][Resources/album-list.png]
-![info][Resources/info.png]
+![launch-screen](Resources/launch-screen.png)
+![album-list](Resources/album-list.png)
+![info](Resources/info.png)

@@ -20,8 +20,6 @@
 
 -(instancetype)initWithContentsOfDictionary:(NSDictionary *)dictionary;
 
--(NSInteger)setReleaseYear;
-
 -(void)setReleaseDate:(NSDate *)releaseDate;
 
 @end

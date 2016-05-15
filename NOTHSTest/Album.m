@@ -26,17 +26,14 @@
 -(void)setReleaseDate:(NSDate *)releaseDate
 {
     _releaseDate = releaseDate;
-    _releaseYear = [self setReleaseYear];
+    [self setReleaseYear];
 }
 
-
--(NSInteger)setReleaseYear
+-(void)setReleaseYear
 {
     NSDateComponents *releaseDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:_releaseDate];
 
-    NSInteger releaseYear = releaseDateComponents.year;
-    
-    return releaseYear;
+    _releaseYear = releaseDateComponents.year;
 }
 
 @end

@@ -26,6 +26,8 @@
     
     [self configureRefreshControl];
     
+    [self styleNavigationBar];
+    
     self.APIController = [SpotifyAPIController new];
 
     [self startDownload:self.APIController];
@@ -176,6 +178,32 @@
 {
     [self startDownload:self.APIController];
     [refreshControl endRefreshing];
+}
+
+- (void)styleNavigationBar
+{
+    UIColor *titleColor = [UIColor colorWithRed:1.00 green:0.80 blue:0.19 alpha:1.00];
+    UIFont *titleFont = [UIFont fontWithName:@"CarouselambraW00-Regular" size:(28)];
+    
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    shadow.shadowBlurRadius = 2.0f;
+    shadow.shadowColor = [UIColor blackColor];
+    
+    NSDictionary *titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                         titleColor, NSForegroundColorAttributeName,
+                                         shadow, NSShadowAttributeName,
+                                         titleFont, NSFontAttributeName,
+                                         nil];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:titleTextAttributes];
+    
+    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+
+    
+    UIColor *navigationBarBackgroundColor = [UIColor colorWithRed:0.80 green:0.19 blue:0.18 alpha:1.00];
+    [self.navigationController.navigationBar setBarTintColor:navigationBarBackgroundColor];
 }
 
 @end

@@ -16,6 +16,7 @@
 		97FBF9851CE727B900B72783 /* SpotifyAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF9841CE727B900B72783 /* SpotifyAPIController.m */; };
 		97FBF9891CE727ED00B72783 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF9881CE727ED00B72783 /* Album.m */; };
 		97FBF98D1CE7553100B72783 /* AlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF98C1CE7553100B72783 /* AlbumTableViewCell.m */; };
+		97FBF9951CE8C40900B72783 /* Carouselambra W00 Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97FBF9941CE8C2A500B72783 /* Carouselambra W00 Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		97FBF9881CE727ED00B72783 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		97FBF98B1CE7553100B72783 /* AlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTableViewCell.h; sourceTree = "<group>"; };
 		97FBF98C1CE7553100B72783 /* AlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewCell.m; sourceTree = "<group>"; };
+		97FBF9941CE8C2A500B72783 /* Carouselambra W00 Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Carouselambra W00 Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				97FBF9771CE7201B00B72783 /* Assets.xcassets */,
 				97FBF9791CE7201B00B72783 /* LaunchScreen.storyboard */,
 				97FBF97C1CE7201B00B72783 /* Info.plist */,
+				97FBF9931CE8C27B00B72783 /* Resources */,
 				97FBF96B1CE7201B00B72783 /* Supporting Files */,
 			);
 			path = NOTHSTest;
@@ -124,6 +127,14 @@
 				97FBF98C1CE7553100B72783 /* AlbumTableViewCell.m */,
 			);
 			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		97FBF9931CE8C27B00B72783 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				97FBF9941CE8C2A500B72783 /* Carouselambra W00 Regular.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97FBF9951CE8C40900B72783 /* Carouselambra W00 Regular.ttf in Resources */,
 				97FBF97B1CE7201B00B72783 /* LaunchScreen.storyboard in Resources */,
 				97FBF9781CE7201B00B72783 /* Assets.xcassets in Resources */,
 				97FBF9761CE7201B00B72783 /* Main.storyboard in Resources */,
@@ -351,6 +363,7 @@
 				97FBF9811CE7201B00B72783 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

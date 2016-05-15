@@ -71,8 +71,20 @@ static NSString *const kDayString = @"day";
                 NSString *name = item[kNameString];
                 
                 NSArray *imagesArray = item[kImagesString];
-                NSDictionary *smallImage = imagesArray[2];
-                NSURL *imageUrl = [NSURL URLWithString:smallImage[kUrlString]];
+                NSURL *imageUrl;
+                
+                for (NSDictionary *imageDictionary in imagesArray) {
+                    
+                    NSInteger width = [imageDictionary[@"width"] integerValue];
+                    
+                    if (width == 300) {
+                        
+                        NSLog(@"%@ IMAGE SIZE %@", name, imageDictionary[@"height"] );
+
+                        imageUrl = [NSURL URLWithString:imageDictionary[kUrlString]];
+                        break;
+                    }
+                }
                 
                 NSURL *albumUrl = [NSURL URLWithString:item[kHrefString]];
                 
@@ -122,7 +134,6 @@ static NSString *const kDayString = @"day";
             
             NSDictionary *albumJsonFeed = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             
-            
             NSString *releaseDatePrecisionString = albumJsonFeed[@"release_date_precision"];
             
             NSString *releaseDateString = albumJsonFeed[kReleaseDateString];
@@ -161,6 +172,7 @@ static NSString *const kDayString = @"day";
     }
 
 }
+
 #pragma mark - Fetch Images
 
 - (void)downloadImage:(Album *)album forIndexPath:(NSIndexPath *)indexPath completionHandler:(void (^)(UIImage *image, NSError *error))completionHandler

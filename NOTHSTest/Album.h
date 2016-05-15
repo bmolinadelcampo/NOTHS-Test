@@ -15,10 +15,13 @@
 @property (strong, nonatomic) NSURL *imageUrl;
 @property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSURL *infoUrl;
-@property (strong, nonatomic) NSString *releaseYear;
+@property (strong, nonatomic) NSDate *releaseDate;
+@property (readonly) NSInteger releaseYear;
 
 -(instancetype)initWithContentsOfDictionary:(NSDictionary *)dictionary;
 
+-(NSInteger)setReleaseYear;
+
+-(void)setReleaseDate:(NSDate *)releaseDate;
+
 @end
-
-

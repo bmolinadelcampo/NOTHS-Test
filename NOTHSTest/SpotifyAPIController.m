@@ -15,7 +15,12 @@ static NSString *const kNameString = @"name";
 static NSString *const kImagesString = @"images";
 static NSString *const kUrlString = @"url";
 static NSString *const kHrefString = @"href";
+
 static NSString *const kReleaseDateString = @"release_date";
+static NSString *const kReleaseDatePrecisionString = @"release_date_precision";
+static NSString *const kYearString = @"year";
+static NSString *const kMonthString = @"month";
+static NSString *const kDayString = @"day";
 
 @interface SpotifyAPIController ()
 
@@ -42,6 +47,8 @@ static NSString *const kReleaseDateString = @"release_date";
     
     return self;
 }
+
+#pragma mark - Fetch basic info 
 
 - (void)fetchAlbumsWithCompletionHandler: (void (^)(NSArray *albums, NSError *error))completionHandler
 {
@@ -80,10 +87,9 @@ static NSString *const kReleaseDateString = @"release_date";
             
             for (Album *album in self.albums) {
                 
-                [self fetchReleaseYearfromUrl:album.infoUrl completionHandler:^(NSString *releaseYear) {
+                [self fetchReleaseDatefromUrl:album.infoUrl completionHandler:^(NSDate *releaseDate) {
                     
-                    album.releaseYear = releaseYear;
-                    NSLog(@"Name: %@, Year: %@", album.name, album.releaseYear);
+                    album.releaseDate = releaseDate;
                     count++;
                     if (count == [self.albums count]) {
                         completionHandler(self.albums, nil);
@@ -105,8 +111,9 @@ static NSString *const kReleaseDateString = @"release_date";
     return;
 }
 
+#pragma mark - Fetch Date 
 
--(void)fetchReleaseYearfromUrl:(NSURL *)url completionHandler:(void (^)(NSString *releaseYear))completionHandler
+-(void)fetchReleaseDatefromUrl:(NSURL *)url completionHandler:(void (^)(NSDate *releaseDate))completionHandler
 {
     
     NSURLSessionDataTask *fetchAlbumJson = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -115,11 +122,17 @@ static NSString *const kReleaseDateString = @"release_date";
             
             NSDictionary *albumJsonFeed = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             
-            NSString *releaseDate = albumJsonFeed[kReleaseDateString];
             
-            NSString *releaseYear = [releaseDate substringToIndex:4];
+            NSString *releaseDatePrecisionString = albumJsonFeed[@"release_date_precision"];
             
-            completionHandler(releaseYear);
+            NSString *releaseDateString = albumJsonFeed[kReleaseDateString];
+            
+            [self configureDateFormatter:self.dateFormatter forDatePrecision:releaseDatePrecisionString];
+            
+            NSDate *releaseDate = [self.dateFormatter dateFromString:releaseDateString];
+            
+            completionHandler(releaseDate);
+            
             
         } else {
             
@@ -130,6 +143,25 @@ static NSString *const kReleaseDateString = @"release_date";
     
     [fetchAlbumJson resume];
 }
+
+-(void)configureDateFormatter:(NSDateFormatter *)dateFormatter forDatePrecision:(NSString *)datePrecision
+{
+    
+    if ([datePrecision isEqualToString:kYearString]) {
+        
+        dateFormatter.dateFormat = @"YYYY";
+        
+    } else if ([datePrecision isEqualToString:kMonthString]) {
+        
+        dateFormatter.dateFormat = @"YYYY-MM";
+        
+    } else if ([datePrecision isEqualToString:kDayString]) {
+        
+        dateFormatter.dateFormat = @"YYYY-MM-DD";
+    }
+
+}
+#pragma mark - Fetch Images
 
 - (void)downloadImage:(Album *)album forIndexPath:(NSIndexPath *)indexPath completionHandler:(void (^)(UIImage *image, NSError *error))completionHandler
 {

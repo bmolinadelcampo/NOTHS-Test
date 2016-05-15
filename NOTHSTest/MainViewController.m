@@ -46,7 +46,7 @@
     Album *currentAlbum = self.albums[indexPath.row];
     
     cell.nameLabel.text = currentAlbum.name;
-    cell.releaseYearLabel.text = currentAlbum.releaseYear;
+    cell.releaseYearLabel.text = [NSString stringWithFormat:@"%ld", (long)currentAlbum.releaseYear];
     
     if (!currentAlbum.image)
     {

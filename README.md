@@ -11,7 +11,7 @@
 7. Error handling
 8. Navigation bar customisation
 
-####Some screenshot 
+####Some screenshots
 
 ![launch-screen](Resources/launch-screen.png)
 ![album-list](Resources/album-list.png)

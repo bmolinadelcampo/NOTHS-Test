@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		97FBF96D1CE7201B00B72783 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF96C1CE7201B00B72783 /* main.m */; };
 		97FBF9701CE7201B00B72783 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF96F1CE7201B00B72783 /* AppDelegate.m */; };
-		97FBF9731CE7201B00B72783 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF9721CE7201B00B72783 /* ViewController.m */; };
+		97FBF9731CE7201B00B72783 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FBF9721CE7201B00B72783 /* MainViewController.m */; };
 		97FBF9761CE7201B00B72783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97FBF9741CE7201B00B72783 /* Main.storyboard */; };
 		97FBF9781CE7201B00B72783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FBF9771CE7201B00B72783 /* Assets.xcassets */; };
 		97FBF97B1CE7201B00B72783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97FBF9791CE7201B00B72783 /* LaunchScreen.storyboard */; };
@@ -23,8 +23,8 @@
 		97FBF96C1CE7201B00B72783 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97FBF96E1CE7201B00B72783 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		97FBF96F1CE7201B00B72783 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		97FBF9711CE7201B00B72783 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		97FBF9721CE7201B00B72783 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		97FBF9711CE7201B00B72783 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		97FBF9721CE7201B00B72783 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		97FBF9751CE7201B00B72783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97FBF9771CE7201B00B72783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97FBF97A1CE7201B00B72783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,8 +93,8 @@
 		97FBF9821CE7275D00B72783 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				97FBF9711CE7201B00B72783 /* ViewController.h */,
-				97FBF9721CE7201B00B72783 /* ViewController.m */,
+				97FBF9711CE7201B00B72783 /* MainViewController.h */,
+				97FBF9721CE7201B00B72783 /* MainViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -197,7 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97FBF9731CE7201B00B72783 /* ViewController.m in Sources */,
+				97FBF9731CE7201B00B72783 /* MainViewController.m in Sources */,
 				97FBF98D1CE7553100B72783 /* AlbumTableViewCell.m in Sources */,
 				97FBF9851CE727B900B72783 /* SpotifyAPIController.m in Sources */,
 				97FBF9701CE7201B00B72783 /* AppDelegate.m in Sources */,

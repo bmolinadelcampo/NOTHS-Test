@@ -10,7 +10,7 @@
         <!--The Albums-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -68,9 +68,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageView" destination="Gzz-Kv-xVq" id="Zal-v1-AG0"/>
                                             <outlet property="nameLabel" destination="Fon-YF-Y2X" id="9HE-so-lO1"/>
                                             <outlet property="releaseYearLabel" destination="Tth-g0-Zaw" id="3cO-Yq-S8W"/>
+                                            <outlet property="thumbnailImageView" destination="Gzz-Kv-xVq" id="nOZ-Fp-nDd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

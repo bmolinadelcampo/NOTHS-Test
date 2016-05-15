@@ -99,13 +99,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NOTHSTest/SpotifyAPIController.m"
-            timestampString = "484942327.367627"
+            timestampString = "485001301.985194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "-fetchAlbumsWithCompletionHandler:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NOTHSTest/MainViewController.m"
+            timestampString = "485007574.573016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-showErrorAlert"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MainViewController showErrorAlert]"
+                  moduleName = "NOTHSTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/belenmolinadelcampo/gits/NOTHSTest/NOTHSTest/MainViewController.m"
+                  timestampString = "485007574.576043"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[MainViewController showErrorAlert]_block_invoke108"
+                  moduleName = "NOTHSTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/belenmolinadelcampo/gits/NOTHSTest/NOTHSTest/MainViewController.m"
+                  timestampString = "485007574.576683"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

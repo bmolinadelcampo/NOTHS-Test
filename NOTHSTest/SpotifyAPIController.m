@@ -8,6 +8,15 @@
 
 #import "SpotifyAPIController.h"
 
+static NSString *const kAlbumFeedUrl = @"https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp/albums?limit=50";
+
+static NSString *const kItemsString = @"items";
+static NSString *const kNameString = @"name";
+static NSString *const kImagesString = @"images";
+static NSString *const kUrlString = @"url";
+static NSString *const kHrefString = @"href";
+static NSString *const kReleaseDateString = @"release_date";
+
 @interface SpotifyAPIController ()
 
 @property (strong, nonatomic) NSURLSession *session;
@@ -28,7 +37,7 @@
     self.albums = [NSMutableArray new];
     
     self.session = [NSURLSession sharedSession];
-    NSURL *url = [NSURL URLWithString:@"https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp/albums?limit=50"];
+    NSURL *url = [NSURL URLWithString:kAlbumFeedUrl];
     
     NSURLSessionDataTask *fetchJson = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
@@ -36,17 +45,17 @@
             
             NSDictionary *jsonFeed = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             
-            NSArray *jsonItemsArray = jsonFeed[@"items"];
+            NSArray *jsonItemsArray = jsonFeed[kItemsString];
             
             for (NSDictionary *item in jsonItemsArray) {
                 
-                NSString *name = item[@"name"];
+                NSString *name = item[kNameString];
                 
-                NSArray *imagesArray = item[@"images"];
+                NSArray *imagesArray = item[kImagesString];
                 NSDictionary *smallImage = imagesArray[2];
-                NSURL *imageUrl = [NSURL URLWithString:smallImage[@"url"]];
+                NSURL *imageUrl = [NSURL URLWithString:smallImage[kUrlString]];
                 
-                NSURL *albumUrl = [NSURL URLWithString:item[@"href"]];
+                NSURL *albumUrl = [NSURL URLWithString:item[kHrefString]];
                 
                 NSDictionary *albumInfo = [NSDictionary dictionaryWithObjectsAndKeys:name, @"name", imageUrl, @"imageUrl", albumUrl, @"infoUrl", nil];
                 
@@ -94,7 +103,7 @@
             
             NSDictionary *albumJsonFeed = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             
-            NSString *releaseDate = albumJsonFeed[@"release_date"];
+            NSString *releaseDate = albumJsonFeed[kReleaseDateString];
             NSString *releaseYear = [releaseDate substringToIndex:4];
             
             completionHandler(releaseYear);

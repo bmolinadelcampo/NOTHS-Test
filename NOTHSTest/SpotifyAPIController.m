@@ -24,12 +24,24 @@ static NSString *const kReleaseDateString = @"release_date";
 @property (strong, nonatomic) NSMutableArray *namesArray;
 @property (strong, nonatomic) NSMutableArray *imagesUrlsArray;
 @property (strong, nonatomic) NSMutableArray *albumUrlsArray;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @end
 
 
 @implementation SpotifyAPIController
 
+-(instancetype)init {
+    
+    self = [super init];
+    
+    if (self) {
+        
+        self.dateFormatter = [NSDateFormatter new];
+    }
+    
+    return self;
+}
 
 - (void)fetchAlbumsWithCompletionHandler: (void (^)(NSArray *albums, NSError *error))completionHandler
 {
@@ -79,7 +91,7 @@ static NSString *const kReleaseDateString = @"release_date";
                 }
                  ];
             }
-
+            
         } else {
             
             NSLog(@"%@", error);
@@ -104,6 +116,7 @@ static NSString *const kReleaseDateString = @"release_date";
             NSDictionary *albumJsonFeed = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             
             NSString *releaseDate = albumJsonFeed[kReleaseDateString];
+            
             NSString *releaseYear = [releaseDate substringToIndex:4];
             
             completionHandler(releaseYear);

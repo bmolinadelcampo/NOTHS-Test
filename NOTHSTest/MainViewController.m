@@ -14,24 +14,22 @@
 
 @property (strong, nonatomic) NSArray *albums;
 @property (strong, nonatomic) SpotifyAPIController *APIController;
-@property BOOL pullToRefreshEnabled;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    self.pullToRefreshEnabled = NO;
+    [self configureRefreshControl];
     
     self.APIController = [SpotifyAPIController new];
 
     [self startDownload:self.APIController];
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:refreshControl];
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -92,6 +90,7 @@
 
 - (void)startDownload:(SpotifyAPIController *)apiController {
     
+    
     [apiController fetchAlbumsWithCompletionHandler:^(NSArray *albums, NSError *error) {
         
         if (!error) {
@@ -110,11 +109,12 @@
             [self showErrorAlert];
         }
         
-        self.pullToRefreshEnabled = YES;
-        
-        
+        if (!self.refreshControl.enabled) {
+            
+            self.refreshControl.enabled = YES;
+        }
+    
     }];
-
 }
 
 - (void)loadImagesForOnscreenRows
@@ -140,7 +140,8 @@
     }
 }
 
-- (void)showErrorAlert {
+- (void)showErrorAlert
+{
     
     UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"It looks like there was a problem." preferredStyle:UIAlertControllerStyleAlert];
     
@@ -161,12 +162,20 @@
     });
 }
 
-- (void)handleRefresh:(UIRefreshControl *)refreshControl {
+- (void)configureRefreshControl
+{
+    self.refreshControl = [UIRefreshControl new];
     
-    if (self.pullToRefreshEnabled) {
-        [self startDownload:self.APIController];
-    }
+    self.refreshControl.enabled = NO;
+    [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     
+    [self.tableView addSubview:self.refreshControl];
+}
+
+- (void)handleRefresh:(UIRefreshControl *)refreshControl
+{
+    [self startDownload:self.APIController];
     [refreshControl endRefreshing];
 }
+
 @end

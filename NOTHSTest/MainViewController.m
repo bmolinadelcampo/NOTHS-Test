@@ -33,7 +33,6 @@
     self.APIController = [SpotifyAPIController new];
 
     [self startDownload:self.APIController];
-    
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -50,7 +49,11 @@
     Album *currentAlbum = self.albums[indexPath.row];
     
     cell.nameLabel.text = currentAlbum.name;
-    cell.releaseYearLabel.text = [NSString stringWithFormat:@"%ld", (long)currentAlbum.releaseYear];
+    
+    if (currentAlbum.releaseYear) {
+        
+        cell.releaseYearLabel.text = [NSString stringWithFormat:@"%ld", (long)currentAlbum.releaseYear];
+    }
     
     if (!currentAlbum.image)
     {
@@ -100,8 +103,6 @@
         if (!error) {
             
             self.albums = albums;
-            
-            NSLog(@"Running completionHandler");
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
@@ -155,9 +156,7 @@
     
     [errorAlert addAction:tryAgainAction];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"Cancel");
-    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
     [errorAlert addAction:cancelAction];
     
@@ -219,7 +218,6 @@
     [infoAlertController addAction:dismissAction];
     
     [self presentViewController:infoAlertController animated:YES completion:nil];
-    
 }
 
 @end

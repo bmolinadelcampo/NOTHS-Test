@@ -11,9 +11,12 @@
 static NSString *const kAlbumFeedUrl = @"https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp/albums?limit=50";
 
 static NSString *const kItemsString = @"items";
+
 static NSString *const kNameString = @"name";
+
 static NSString *const kImagesString = @"images";
 static NSString *const kUrlString = @"url";
+static NSString *const kwidthString = @"width";
 static NSString *const kHrefString = @"href";
 
 static NSString *const kReleaseDateString = @"release_date";
@@ -75,12 +78,10 @@ static NSString *const kDayString = @"day";
                 
                 for (NSDictionary *imageDictionary in imagesArray) {
                     
-                    NSInteger width = [imageDictionary[@"width"] integerValue];
+                    NSInteger width = [imageDictionary[kwidthString] integerValue];
                     
                     if (width == 300) {
                         
-                        NSLog(@"%@ IMAGE SIZE %@", name, imageDictionary[@"height"] );
-
                         imageUrl = [NSURL URLWithString:imageDictionary[kUrlString]];
                         break;
                     }
@@ -134,7 +135,7 @@ static NSString *const kDayString = @"day";
             
             NSDictionary *albumJsonFeed = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             
-            NSString *releaseDatePrecisionString = albumJsonFeed[@"release_date_precision"];
+            NSString *releaseDatePrecisionString = albumJsonFeed[kReleaseDatePrecisionString];
             
             NSString *releaseDateString = albumJsonFeed[kReleaseDateString];
             
@@ -170,7 +171,6 @@ static NSString *const kDayString = @"day";
         
         dateFormatter.dateFormat = @"YYYY-MM-DD";
     }
-
 }
 
 #pragma mark - Fetch Images
